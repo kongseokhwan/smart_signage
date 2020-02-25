@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<include
+		resource="org/springframework/boot/logging/logback/defaults.xml" />
+	<include
+		resource="org/springframework/boot/logging/logback/console-appender.xml" />
+
+	<!-- 변수 지정 -->
+	<property name="LOG_DIR" value="./logs" />
+	<property name="LOG_PATH_NAME" value="${LOG_DIR}/signage-cms.log" />
+
+	<!-- FILE Appender -->
+	<appender name="FILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_PATH_NAME}</file>
+		<!-- 일자별로 로그파일 적용하기 -->
+		<rollingPolicy
+			class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_PATH_NAME}.%d{yyyyMMdd}.%i</fileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+		   		<!-- or whenever the file size reaches 1024MB -->
+		   		<maxFileSize>1024MB</maxFileSize>
+		   	</timeBasedFileNamingAndTriggeringPolicy>
+			<maxHistory>60</maxHistory> <!-- 일자별 백업파일의 보관기간 -->
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss} [%-5p] [%F]%M\(%L\) : %m%n</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="STDOUT"
+		class="ch.qos.logback.core.ConsoleAppender">
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<pattern>%d{yyyy-MM-dd HH:mm:ss} [%-5p] [%F]%M\(%L\) : %m%n</pattern>
+		</layout>
+	</appender>
+	
+	<logger name="jdbc" level="OFF"/>
+	<logger name="jdbc.sqlonly" level="DEBUG" additivity="false">
+		<appender-ref ref="STDOUT" />
+	</logger>
+	<logger name="jdbc.resultset" level="ERROR" additivity="false">
+	
+	    <appender-ref ref="STDOUT" />
+	  </logger>
+    
+
+	<root level="INFO">
+		<appender-ref ref="FILE" />
+		<appender-ref ref="STDOUT" />
+	</root>
+	<logger name="com.kulcloud" level="INFO" additivity="false">
+		<appender-ref ref="FILE" />
+		<appender-ref ref="STDOUT" />
+	</logger>
+</configuration>

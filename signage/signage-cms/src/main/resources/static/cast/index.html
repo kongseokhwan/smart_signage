@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>Kulcloud Signage</title>
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+   		<link rel="stylesheet" type="text/css" href="css/animations.css" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<script src="/webjars/sockjs-client/1.1.2/sockjs.min.js"></script>
+		<script src="js/modernizr.custom.js"></script>
+	</head>
+	<body style="margin: 0;">	
+		<div id="pt-main" class="pt-perspective">
+			<div class="pt-page pt-page-1"><cast-media-player></cast-media-player></div>
+			<div class="pt-page pt-page-2"> <iframe class="iframe"></iframe></div>
+		</div>
+
+	    <script src="//www.gstatic.com/cast/sdk/libs/caf_receiver/v3/cast_receiver_framework.js"></script>
+	    <script src="//www.gstatic.com/cast/sdk/libs/devtools/debug_layer/caf_receiver_logger.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="js/pages.js"></script>
+		<script src="js/receiver.js"></script>
+	</body>
+</html>
