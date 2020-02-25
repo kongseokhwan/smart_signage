@@ -4,14 +4,4 @@ dist/
 /signage-rpizero-0.0.1-SNAPSHOT.jar
 /signage-cms-0.0.1-SNAPSHOT.jar
 /signage-tenant-0.0.1-SNAPSHOT.jar
-/.idea/
-/.idea/libraries/
-/.idea/compiler.xml
-/.idea/encodings.xml
-/.idea/misc.xml
-/.idea/modules.xml
-/.idea/vcs.xml
-/.idea/workspace.xml
-/.idea/
-/.idea/
-/.idea/libraries/
+.idea/
